@@ -30,6 +30,7 @@ const ExpenseForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     const expenseData = {
+      id: Math.random().toString(),
       title: userInput.inputTitle,
       amount: userInput.inputAmount,
       date: userInput.inputDate,

@@ -1,3 +1,4 @@
+// import { useState } from "react";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 
@@ -24,9 +25,11 @@ const expenses = [
 ];
 
 function App() {
+  // const [expense, setExpense] = useState();
   const onExpenseHandler = (data) => {
     const newExpenseData = data;
     console.log(newExpenseData);
+    // setExpense()
   };
 
   return (
