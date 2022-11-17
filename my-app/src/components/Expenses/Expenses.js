@@ -5,17 +5,28 @@ import "./Expenses.css";
 import ExpensesFilter from "./ExpensesFIlter";
 
 function Expenses({ expenses }) {
-  const [filterYear, setfilterYear] = useState("");
+  const [filterYear, setfilterYear] = useState("2022");
   const filterHandler = (year) => {
     setfilterYear(year);
   };
+
+  const filteredExpense = expenses.filter(
+    (expense) => expense.date.slice(0, 4) === filterYear
+  );
+
+  let expenseData =
+    filteredExpense.length === 0 ? (
+      <p>No expenses found.</p>
+    ) : (
+      filteredExpense.map((expense) => (
+        <ExpenseItem key={expense.id} expense={expense} />
+      ))
+    );
+
   return (
     <Card className="expenses">
-      <span>{filterYear}</span>
       <ExpensesFilter onFilter={filterHandler} />
-      {expenses.map((item) => (
-        <ExpenseItem item={item} />
-      ))}
+      {expenseData}
     </Card>
   );
 }
