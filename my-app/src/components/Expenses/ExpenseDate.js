@@ -4,9 +4,9 @@ function ExpenseDate(props) {
   // const month = props.date.toLocaleString("en-US", { month: "long" });
   // const year = props.date.getFullYear();
   // const day = props.date.toLocaleString("en-US", { day: "numeric" });
-  const month = props.date.slice(0, 4);
-  const year = props.date.slice(5, 7);
-  const day = props.date.slice(8, 10);
+  const year = props.date.getFullYear();
+  const month = props.date.getMonth() + 1;
+  const day = props.date.getDate();
 
   return (
     <div className="expense-date">
