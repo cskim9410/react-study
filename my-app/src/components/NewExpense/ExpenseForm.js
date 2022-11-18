@@ -25,7 +25,7 @@ const ExpenseForm = (props) => {
     setUserInput((prevState) => {
       return {
         ...prevState,
-        inputDate: new Date(event.target.value),
+        inputDate: event.target.value,
       };
     });
   };
@@ -35,8 +35,8 @@ const ExpenseForm = (props) => {
     const expenseData = {
       id: Math.random().toString(),
       title: userInput.inputTitle,
-      amount: userInput.inputAmount,
-      date: userInput.inputDate,
+      amount: Number(userInput.inputAmount),
+      date: new Date(userInput.inputDate),
     };
     props.onSaveExpenseData(expenseData);
     props.onCancel(false);
